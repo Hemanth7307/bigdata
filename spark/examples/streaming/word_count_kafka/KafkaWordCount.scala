@@ -25,7 +25,7 @@ object KafkaWordCount {
         )
         
         val conf = new SparkConf().setMaster("local[*]").setAppName("KafkaWordCount")
-        val ssc = new StreamingContext(conf, Seconds(10))
+        val ssc = new StreamingContext(conf, Seconds(5))
 	ssc.sparkContext.setLogLevel("ERROR")
         val stream = KafkaUtils.createDirectStream[String, String](
           ssc,
